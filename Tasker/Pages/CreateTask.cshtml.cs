@@ -7,11 +7,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Tasker.Pages
 {
-    public class CreateTaskModel : PageModel
-    {
-        public void OnGet()
-        {
+	public class CreateTaskModel : PageModel
+	{
+		[BindProperty]
+		public Task NewTask { get; set; }
 
-        }
-    }
+		public IActionResult OnPost()
+		{
+			return RedirectToPage("Index");
+		}
+	}
 }
